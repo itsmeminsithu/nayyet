@@ -6,6 +6,8 @@ A bilingual Myanmar calendar for Android, iOS and the web.
 
 **Developer:** [Min SiThu (itsmeminsithu)](https://minsithu.org/) · [Contact](https://minsithu.org/contact/)
 
+**Live preview:** https://itsmeminsithu.github.io/nayyet/
+
 ## ပါဝင်တာတွေ / Included
 
 - Gregorian လပြက္ခဒိန်နဲ့ မြန်မာရက်စွဲကို တွဲကြည့်နိုင်ခြင်း
