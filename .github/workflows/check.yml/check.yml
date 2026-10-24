@@ -1,0 +1,24 @@
+name: Calendar checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python3 tools/build_calendar.py
+      - run: git diff --exit-code -- shared web/assets android_flutter/assets ios_swift
+      - run: npm test
+        working-directory: web
+  swift-core:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: swift test
+        working-directory: ios_swift
+      - run: xcodebuild -project NayYet.xcodeproj -scheme NayYet -sdk iphonesimulator -configuration Debug CODE_SIGNING_ALLOWED=NO build
+        working-directory: ios_swift
