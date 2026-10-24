@@ -1,0 +1,29 @@
+name: nayyet
+description: NayYet bilingual Myanmar calendar.
+publish_to: none
+version: 1.3.0+5
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/calendar.json
+    - assets/themes/
+    - assets/fonts/Pyidaungsu-NOTICE.txt
+    - assets/fonts/Pyidaungsu-OFL.txt
+    - assets/fonts/Outfit-OFL.txt
+  fonts:
+    - family: Pyidaungsu
+      fonts:
+        - asset: assets/fonts/Pyidaungsu.ttf
+    - family: Outfit
+      fonts:
+        - asset: assets/fonts/Outfit.ttf

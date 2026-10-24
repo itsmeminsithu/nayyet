@@ -1,0 +1,134 @@
+[
+  {
+    "month": 1,
+    "en": "Starlit beginnings",
+    "my": "ကြယ်စုံည၏ အစ",
+    "scene": "stars",
+    "top": "#112245",
+    "bottom": "#567b9f",
+    "accent": "#365b86",
+    "paper": "#e9f0f7",
+    "file": "theme-01.png"
+  },
+  {
+    "month": 2,
+    "en": "Bagan at dawn",
+    "my": "အရုဏ်ဦး ပုဂံ",
+    "scene": "bagan",
+    "top": "#482c56",
+    "bottom": "#e8a180",
+    "accent": "#8b4b68",
+    "paper": "#f5e7e8",
+    "file": "theme-02.png"
+  },
+  {
+    "month": 3,
+    "en": "A Myanmar village",
+    "my": "မြန်မာ့ကျေးရွာ ရှုခင်း",
+    "scene": "village",
+    "top": "#735033",
+    "bottom": "#edc47e",
+    "accent": "#8b652c",
+    "paper": "#f7efdf",
+    "file": "theme-03.png"
+  },
+  {
+    "month": 4,
+    "en": "Ngapali coast",
+    "my": "ငပလီ ပင်လယ်ကမ်းခြေ",
+    "scene": "beach",
+    "top": "#17485b",
+    "bottom": "#80cfcc",
+    "accent": "#236f79",
+    "paper": "#e1f1ef",
+    "file": "theme-04.png"
+  },
+  {
+    "month": 5,
+    "en": "Taunggyi mountain morning",
+    "my": "တောင်ကြီး တောင်တန်းနံနက်ခင်း",
+    "scene": "taunggyi",
+    "top": "#183f41",
+    "bottom": "#86ac8c",
+    "accent": "#386c54",
+    "paper": "#e6efe4",
+    "file": "theme-05.png"
+  },
+  {
+    "month": 6,
+    "en": "Monsoon valley",
+    "my": "မိုးရာသီ ချိုင့်ဝှမ်း",
+    "scene": "rain",
+    "top": "#1f334e",
+    "bottom": "#7d9baf",
+    "accent": "#496d89",
+    "paper": "#e7edf4",
+    "file": "theme-06.png"
+  },
+  {
+    "month": 7,
+    "en": "Inle Lake reflections",
+    "my": "အင်းလေးကန် ရေပြင်အရိပ်",
+    "scene": "inle",
+    "top": "#132c43",
+    "bottom": "#598e9c",
+    "accent": "#2d6c7c",
+    "paper": "#e3f0f1",
+    "file": "theme-07.png"
+  },
+  {
+    "month": 8,
+    "en": "Cosmic drift",
+    "my": "စကြဝဠာခရီး",
+    "scene": "cosmic",
+    "top": "#191334",
+    "bottom": "#945c9c",
+    "accent": "#72478b",
+    "paper": "#eee5f4",
+    "file": "theme-08.png"
+  },
+  {
+    "month": 9,
+    "en": "City after sunset",
+    "my": "နေဝင်ပြီး မြို့ပြ",
+    "scene": "skyline",
+    "top": "#3c304f",
+    "bottom": "#da8d86",
+    "accent": "#905575",
+    "paper": "#f4e6ec",
+    "file": "theme-09.png"
+  },
+  {
+    "month": 10,
+    "en": "Pagodas in lantern light",
+    "my": "မီးအလင်းနဲ့ စေတီများ",
+    "scene": "pagoda",
+    "top": "#262044",
+    "bottom": "#d39165",
+    "accent": "#86523a",
+    "paper": "#f5eadd",
+    "file": "theme-10.png"
+  },
+  {
+    "month": 11,
+    "en": "A sky of stars",
+    "my": "ကြယ်ပွင့်များရဲ့ ကောင်းကင်",
+    "scene": "stars",
+    "top": "#131c3d",
+    "bottom": "#6171ae",
+    "accent": "#505e94",
+    "paper": "#e7eaf7",
+    "file": "theme-11.png"
+  },
+  {
+    "month": 12,
+    "en": "Winter universe",
+    "my": "ဆောင်းည စကြဝဠာ",
+    "scene": "cosmic",
+    "top": "#142a3c",
+    "bottom": "#668fa8",
+    "accent": "#34637d",
+    "paper": "#e5eef4",
+    "file": "theme-12.png"
+  }
+]

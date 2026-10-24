@@ -1,0 +1,17 @@
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
+.openai/
+.dart_tool/
+.flutter-plugins*
+.pub-cache/
+build/
+.build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+android_flutter/android/local.properties
+android_flutter/android/key.properties
+*.keystore
+*.jks
