@@ -2,7 +2,7 @@
 
 မြန်မာရက်စွဲ၊ လဆန်းလဆုတ်နဲ့ ဥပုသ်နေ့တွေကို နေ့စဉ်ကြည့်ဖို့။
 
-A bilingual Myanmar calendar for Android, iOS and the web.
+I kept having to work out the Myanmar date from the Gregorian one, so I built this. NayYet shows both side by side — Myanmar date, lunar phase, sabbath days — on Android, iOS and web, in Myanmar and English.
 
 **Developer:** [Min SiThu (itsmeminsithu)](https://minsithu.org/) · [Contact](https://minsithu.org/contact/)
 
@@ -18,9 +18,9 @@ A bilingual Myanmar calendar for Android, iOS and the web.
 - Pyidaungsu နဲ့ Google Fonts မှ Outfit ကို project ထဲမှာ ထည့်ထားခြင်း
 - ရက်စွဲအပိုင်းအခြား: 1900-01-01 မှ 2100-12-31
 
-No account, API key, database, analytics or backend is needed. Native apps contain their calendar data and fonts. The web app caches files after a successful first visit over HTTPS or localhost; browser cache eviction can remove offline access. Selected 2026 public holidays and recurring international observances are included. See HOLIDAYS.md for coverage and source discrepancies.
+It needs no account, API key, database, analytics or backend. The native apps carry their calendar data and fonts with them. The web app caches files after a first visit that succeeds over HTTPS or localhost; if the browser clears its cache, offline access goes with it. Selected 2026 public holidays and recurring international observances are included. See HOLIDAYS.md for coverage and for where sources disagreed.
 
-## Project folders
+## Folders
 
 | Folder | Implementation |
 | --- | --- |
@@ -30,11 +30,11 @@ No account, API key, database, analytics or backend is needed. Native apps conta
 | `shared/` | Canonical calendar data, test vectors and licensed fonts |
 | `tools/` | Reproducible Python calendar-data generator |
 
-This download is a **source package**. It does not include an APK, IPA, signing certificate or store release. Web tests and browser checks were performed. Flutter and Xcode builds have not been run in the packaging environment; see [TESTING.md](TESTING.md).
+Before you download: this is a **source package**. There is no APK, IPA, signing certificate or store release in it. The web side was tested in browsers. Flutter and Xcode builds were not run in the packaging environment; see [TESTING.md](TESTING.md).
 
 ## Mac မှာ Web ကို ဖွင့်ရန်
 
-Python 3.9 or newer is required. Extract the ZIP, open Terminal in the `nayyet` folder and run:
+You need Python 3.9 or newer. Extract the ZIP, open Terminal in the `nayyet` folder and run:
 
 ```bash
 python3 start_web.py
@@ -42,7 +42,7 @@ python3 start_web.py
 
 Browser မှာ `http://127.0.0.1:8080/` ပွင့်လာပါမယ်။ Terminal ကို ဖွင့်ထားပါ။ ပိတ်ချင်ရင် `Ctrl+C` နှိပ်ပါ။ `index.html` ကို double-click ဖွင့်ရင် calendar data မဖတ်နိုင်ပါ။
 
-If double-clicking `Start-Web.command` is blocked or loses executable permission, use the Terminal command above. If port 8080 is busy:
+If double-clicking `Start-Web.command` is blocked or the file lost its executable permission, use the Terminal command above. If port 8080 is busy:
 
 ```bash
 python3 start_web.py --port 8081
@@ -52,7 +52,7 @@ Windows: run `py -3 start_web.py` or `Start-Web.bat`. Linux: `python3 start_web.
 
 ## Android / Flutter
 
-Install the stable Flutter SDK, Android Studio and Android SDK. Android 10 (API 29) or newer is required for saving PNGs through scoped media storage. Run `flutter doctor` and resolve its Android toolchain checks. Then, from the extracted project root:
+Install the stable Flutter SDK, Android Studio and the Android SDK. Saving PNGs through scoped media storage needs Android 10 (API 29) or newer. Run `flutter doctor` and fix what it flags in the Android toolchain. Then, from the project root:
 
 ```bash
 cd android_flutter
@@ -61,9 +61,9 @@ flutter test
 flutter run
 ```
 
-The preparation script creates the platform runner with your installed Flutter SDK, preserves `lib/` and assets, sets the application label, copies NayYet launcher icons and installs the Kotlin save/share activity. Running preparation again overwrites that generated MainActivity.kt; keep custom platform changes in platform_templates/MainActivity.kt. Internet is needed for the first SDK/dependency setup. The app itself does not need a network connection.
+The preparation script builds the platform runner with your Flutter SDK, keeps `lib/` and assets, sets the app label, copies the NayYet launcher icons and installs the Kotlin save/share activity. Run it again and it overwrites the generated MainActivity.kt, so keep your own platform changes in platform_templates/MainActivity.kt. The first SDK and dependency setup needs internet. The app itself does not.
 
-Build an APK for local testing:
+APK for local testing:
 
 ```bash
 flutter build apk --debug
@@ -71,7 +71,7 @@ flutter build apk --debug
 
 Output: `build/app/outputs/flutter-apk/app-debug.apk`.
 
-For a release build, configure your own Android upload keystore and signing configuration first; the generated Flutter runner's default signing setup is not a Play Store release setup. Do not commit keys or `key.properties`.
+For a release build, set up your own Android upload keystore and signing first. The generated runner's default signing is not a Play Store setup. Do not commit keys or `key.properties`.
 
 ```bash
 flutter build appbundle --release
@@ -79,15 +79,15 @@ flutter build appbundle --release
 
 ## iOS / SwiftUI
 
-Requires macOS, Xcode 15 or newer and an iOS 17+ simulator/device.
+You need a Mac, Xcode 15 or newer and an iOS 17+ simulator or device.
 
 ```bash
 open ios_swift/NayYet.xcodeproj
 ```
 
-Choose the **NayYet** scheme and an iPhone simulator, then press **Run**. For a physical device, choose your development team under **Signing & Capabilities** and use a bundle identifier owned by your team. Archive and App Store distribution require your Apple signing setup.
+Pick the **NayYet** scheme and an iPhone simulator, then press **Run**. On a real device, set your development team under **Signing & Capabilities** and use a bundle identifier your team owns. Archiving and App Store release need your own Apple signing setup.
 
-Core tests can also run on macOS without opening Xcode:
+Core tests without opening Xcode:
 
 ```bash
 cd ios_swift
@@ -96,24 +96,24 @@ swift test
 
 ## Tests and calendar data
 
-Node.js 20+ is needed only to run web tests:
+Node.js 20+ is only needed for the web tests:
 
 ```bash
 cd web
 npm test
 ```
 
-Regenerate data from the repository root with Python:
+Regenerate the data from the repository root:
 
 ```bash
 python3 tools/build_calendar.py
 ```
 
-[CALENDAR_NOTES.md](CALENDAR_NOTES.md) explains the algorithm, bounds and table format. [TESTING.md](TESTING.md) records verification and remaining native-device checks.
+[CALENDAR_NOTES.md](CALENDAR_NOTES.md) covers the algorithm, the date bounds and the table format. [TESTING.md](TESTING.md) records what was checked and which device checks are still open.
 
-## GitHub upload
+## Putting it on GitHub
 
-Create a repository named `nayyet`, then upload the **contents** of this folder, including README, LICENSE and the three implementation folders. For the command line, replace the remote below if you use a different repository name:
+Create a repository named `nayyet` and upload the **contents** of this folder, including README, LICENSE and the three implementation folders. From the command line (change the remote if you use a different repo name):
 
 ```bash
 git init
@@ -128,32 +128,32 @@ Suggested GitHub description:
 
 > နေ့ရက် — NayYet: a bilingual Myanmar calendar for Android, iOS and the web, with lunar dates, sabbath days and offline calendar data.
 
-To publish only the web app, enable GitHub Pages with **GitHub Actions** as its source and manually run the **Deploy web calendar** workflow. The website is not published automatically when source is uploaded. For other static hosts, deploy the contents of `web/`.
+To publish the web app, enable GitHub Pages with **GitHub Actions** as the source and run the **Deploy web calendar** workflow yourself. Uploading the source does not publish the site on its own. On other static hosts, deploy the contents of `web/`.
 
 ## License
 
-Application code: MIT © 2026 Min SiThu (itsmeminsithu). Bundled fonts retain their own SIL Open Font License notices. See [LICENSE](LICENSE) and [THIRD_PARTY.md](THIRD_PARTY.md).
+Application code: MIT © 2026 Min SiThu (itsmeminsithu). Bundled fonts keep their own SIL Open Font License notices. See [LICENSE](LICENSE) and [THIRD_PARTY.md](THIRD_PARTY.md).
 
 ## Date search, holidays and quote images
 
-The top search accepts `YYYY-MM-DD` and `DD/MM/YYYY`, including Myanmar digits such as `၀၁/၀၁/၂၀၂၆`. Use the previous/next day buttons to step through past dates. The selected date controls the quote, holiday details and exported image date.
+The search box at the top takes `YYYY-MM-DD` and `DD/MM/YYYY`, including Myanmar digits such as `၀၁/၀၁/၂၀၂၆`. The previous/next day buttons step through past dates. The date you select drives the quote, the holiday details and the date on the exported image.
 
-There are 31 original bilingual short reflections. They rotate by civil date, repeat every 31 days, and use the same index on all three platforms. They are not quotations attributed to public figures.
+There are 31 short bilingual reflections written for this app. They rotate by civil date, repeat every 31 days, and use the same index on all three platforms. They are not quotes from public figures.
 
-Choose **Universe** or **Skyline**, then export a **1080 × 1350 PNG**:
+Pick **Universe** or **Skyline**, then export a **1080 × 1350 PNG**.
 
-- Web: Save PNG downloads the image. Share opens the system share sheet where file sharing is supported; otherwise it downloads. Browser download settings decide the save location. If a mobile share sheet rejects the operation, use Save PNG.
-- Android: Save PNG writes to **Pictures/NayYet**. Share saves the image there, then opens the system chooser. No broad storage permission is requested on Android 10+.
-- iOS: Prepare PNG creates the image, then Share / Save to Files opens the system share sheet. Save to Photos requests add-only photo permission. Denying Photos access does not prevent saving to Files.
+- Web: Save PNG downloads the image. Share opens the system share sheet where file sharing is supported, and downloads instead where it is not. Your browser's download settings decide where it lands. If a mobile share sheet refuses, use Save PNG.
+- Android: Save PNG writes to **Pictures/NayYet**. Share saves the image there first, then opens the system chooser. No broad storage permission is asked for on Android 10+.
+- iOS: Prepare PNG builds the image, then Share / Save to Files opens the system share sheet. Save to Photos asks for add-only photo permission. Saying no to Photos does not block saving to Files.
 
-The user chooses the destination/social app and confirms posting. NayYet never posts automatically. Native image export code still needs real-device verification.
+You pick the app and confirm the post. NayYet never posts on its own. Native image export still needs checking on a real device.
 
-Sample exported images are in `examples/quote-universe-my.png` and `examples/quote-skyline-en.png`.
+Sample exports: `examples/quote-universe-my.png` and `examples/quote-skyline-en.png`.
 
 ## Monthly artwork — v1.2.0
 
-Each month has its own scenery: pagodas, mountains, rivers, skyline, stars and cosmic skies. The same twelve scenes ship with Android, iOS and web. Choose **Monthly theme** when saving a quote to use the selected date’s artwork. See [MONTHLY_THEMES.md](MONTHLY_THEMES.md).
+Each month has its own scenery: pagodas, mountains, rivers, skyline, stars and cosmic skies. The same twelve scenes ship on Android, iOS and web. Choose **Monthly theme** when saving a quote to use that date's artwork. See [MONTHLY_THEMES.md](MONTHLY_THEMES.md).
 
 ## Quote backgrounds — v1.2.1
 
-The daily quote card now displays the selected date’s monthly scenery on all three platforms, matching the default monthly PNG export. Select a date in a different month to change both. The calendar header follows the month being browsed; the quote follows the selected date shown above it. Universe and Skyline remain optional export overrides. Android waits for the theme image to load before capturing the PNG.
+The daily quote card now shows the selected date's monthly scenery on all three platforms, which matches the default monthly PNG export. Pick a date in another month and both change. The calendar header follows the month you are browsing; the quote follows the selected date above it. Universe and Skyline are still there as export overrides. On Android, the app waits for the theme image to load before it captures the PNG.
